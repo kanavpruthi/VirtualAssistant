@@ -60,6 +60,25 @@ def openapp(command):
         talk('Opening MS Word')
         os.system("winword")
 
+def openwebsite(command):
+    if 'youtube' in command:
+        opensite('youtube')
+    elif 'facebook' in command:
+        opensite('facebook')
+    elif 'instagram' in command:
+        opensite('instagram')
+    elif 'github' in command or 'git' in command or 'repository' in command:
+        opensite('github')
+    elif 'amazon'in command:
+        opensite('amazon')
+    elif 'flipkart' in command:
+        opensite('flipkart')
+    elif 'snapdeal' in command:
+        opensite('snapdeal')
+    elif 'gmail' in command:
+        opensite('gmail')
+
+
 def input_command():
     try:
         with sr.Microphone() as source:
@@ -75,6 +94,7 @@ def input_command():
     except:
         return "invalid"
         pass
+
 
 x=True
 
@@ -113,22 +133,7 @@ def run_AI():
         talk(jk.get_joke())
     elif 'open' in command:
         openapp(command)
-        if 'youtube' in command:
-            opensite('youtube')
-        elif 'facebook' in command:
-            opensite('facebook')
-        elif 'instagram' in command:
-            opensite('instagram')
-        elif 'github' in command or 'git' in command or 'repository' in command:
-            opensite('github')
-        elif 'amazon'in command:
-            opensite('amazon')
-        elif 'flipkart' in command:
-            opensite('flipkart')
-        elif 'snapdeal' in command:
-            opensite('snapdeal')
-        elif 'gmail' in command:
-            opensite('gmail')
+        openwebsite(command)
     elif 'stop' in command or 'exit' in command:
         talk('Shutting Jarvis down.')
         talk('Sorry to see that you are leaving.')
