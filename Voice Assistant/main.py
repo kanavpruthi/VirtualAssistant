@@ -31,7 +31,7 @@ def input_command():
     except:
         return "invalid"
         pass
-
+x=True
 def run_AI():
     command=input_command()
     while command=="invalid":
@@ -65,8 +65,12 @@ def run_AI():
         talk(ls[int(random.random()*len(ls))])
     elif 'bored' in command or 'joke' in command or 'jokes' in command or 'boring' in command:
         talk(jk.get_joke())
+    elif 'stop' in command or 'exit' in command:
+        talk('Shutting Jarvis down.')
+        talk('Sorry to see that you are leaving.')
+        return False
     else:
         talk('I am currently learning new things, please go easy on me')
 
-while True:
-    run_AI()
+while x:
+    x=run_AI()
