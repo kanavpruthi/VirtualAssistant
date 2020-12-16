@@ -8,18 +8,24 @@ import random
 import pyjokes as jk
 import subprocess as sb
 import os
+
+
 listener = sr.Recognizer()
 engine=pyttsx3.init()
 voices=engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
+
+
 def talk(text='Retinal scan confirmed, welcome Agent Johnson, I am Jarvis.'):
     print(text)
     engine.say(text)
     engine.runAndWait()
 
 talk()
+
 def opensite(site):
     webbrowser.open('http://www.'+site+'.com', new=2)
+
 def openapp(command):
     if 'calculator' in command:
             sb.Popen('C:\\Windows\\System32\\calc.exe')
@@ -69,7 +75,9 @@ def input_command():
     except:
         return "invalid"
         pass
+
 x=True
+
 def run_AI():
     command=input_command()
     while command=="invalid":
@@ -107,6 +115,10 @@ def run_AI():
         openapp(command)
         if 'youtube' in command:
             opensite('youtube')
+        elif 'facebook' in command:
+            opensite('facebook')
+        elif 'instagram' in command:
+            opensite('instagram')
         elif 'github' in command or 'git' in command or 'repository' in command:
             opensite('github')
         elif 'amazon'in command:
@@ -124,5 +136,6 @@ def run_AI():
     else:
         talk('I am currently learning new things, please go easy on me')
     return True
+
 while x:
     x=run_AI()
