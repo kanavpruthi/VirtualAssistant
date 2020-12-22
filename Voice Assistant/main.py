@@ -16,7 +16,7 @@ voices=engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
 
 
-def talk(text='Retinal scan confirmed, welcome Agent Johnson, I am Jarvis.'):
+def talk(text='Retinal scan confirmed. Welcome back, sir. How may I help you today?'):
     print(text)
     engine.say(text)
     engine.runAndWait()
@@ -82,7 +82,6 @@ def openwebsite(command):
 def input_command():
     try:
         with sr.Microphone() as source:
-
             listener.adjust_for_ambient_noise(source)
             talk('Listening ...')
             voice=listener.listen(source)
@@ -134,7 +133,7 @@ def run_AI():
     elif 'open' in command:
         openapp(command)
         openwebsite(command)
-    elif 'stop' in command or 'exit' in command:
+    elif 'shut down' in command or 'exit' in command:
         talk('Shutting Jarvis down.')
         talk('Sorry to see that you are leaving.')
         return False
